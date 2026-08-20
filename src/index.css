@@ -105,16 +105,16 @@ body {
 
 .text-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
 .text-meta {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--color-text-3);
   letter-spacing: 0.05em;
 }
@@ -136,12 +136,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.8rem;
+  padding: 0.85rem 1.8rem;
   background: var(--color-accent);
   color: #fff;
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 1rem;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -162,12 +162,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.8rem 1.8rem;
+  padding: 0.85rem 1.8rem;
   background: transparent;
   color: var(--color-text);
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid var(--color-border);
   cursor: pointer;

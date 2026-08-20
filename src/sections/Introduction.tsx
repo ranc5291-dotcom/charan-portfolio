@@ -40,14 +40,10 @@ export default function Introduction() {
           </div>
 
           <h2
-            className="font-display"
+            className="text-display-sm"
             style={{
-              fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)',
-              fontWeight: 600,
-              lineHeight: 1.15,
-              letterSpacing: '-0.02em',
               color: 'var(--color-text)',
-              marginBottom: '3rem',
+              marginBottom: '2.5rem',
               maxWidth: '900px',
             }}
           >
@@ -77,8 +73,8 @@ export default function Introduction() {
           >
             <p
               style={{
-                fontSize: 'clamp(1.1rem, 1.8vw, 1.35rem)',
-                lineHeight: 1.6,
+                fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
+                lineHeight: 1.65,
                 color: 'var(--color-text-2)',
               }}
             >
