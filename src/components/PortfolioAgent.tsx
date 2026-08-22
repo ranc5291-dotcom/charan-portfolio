@@ -18,7 +18,7 @@ export default function PortfolioAgent() {
     {
       id: 'welcome',
       role: 'assistant',
-      content: "Hi! I'm Charan's AI Portfolio Agent, powered by RAG and Groq (Llama 3.3 70B). Ask me anything about his technical background, projects, work experience, or availability!",
+      content: "Hi! I'm Charan's AI Portfolio Agent.",
       timestamp: new Date()
     }
   ]);
