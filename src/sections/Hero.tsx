@@ -126,15 +126,11 @@ export default function Hero() {
           </span>
 
           <h1
-            className="font-display"
+            className="text-display"
             style={{
-              fontSize: 'clamp(2.5rem, 6.2vw, 5.5rem)',
-              fontWeight: 800,
-              lineHeight: 1.02,
-              letterSpacing: '-0.035em',
               color: 'var(--color-text)',
-              marginBottom: '1.5rem',
-              maxWidth: '750px',
+              marginBottom: '1.75rem',
+              maxWidth: '780px',
               textShadow: '0 8px 30px rgba(0,0,0,0.7)',
             }}
           >
@@ -142,17 +138,21 @@ export default function Hero() {
             <br />
             Builder.
             <br />
-            <span className="gradient-text">Problem Solver.</span>
+            <span className="gradient-text">Problem</span>
+            <br />
+            <span className="gradient-text">Solver.</span>
           </h1>
 
           <p
             style={{
-              fontSize: 'clamp(0.95rem, 1.3vw, 1.15rem)',
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1rem, 1.15vw, 1.1rem)',
+              fontWeight: 400,
               color: 'var(--color-text-2)',
-              lineHeight: 1.65,
-              maxWidth: '520px',
+              lineHeight: 1.6,
+              letterSpacing: '0',
+              maxWidth: '660px',
               marginBottom: '2.5rem',
-              textShadow: '0 4px 16px rgba(0,0,0,0.8)',
             }}
           >
             I build digital products, intelligent applications, and practical solutions across software, AI, and modern web technologies.

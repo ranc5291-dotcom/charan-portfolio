@@ -16,7 +16,7 @@
   --color-glow:      rgba(79,142,247,0.18);
 
   /* Typography */
-  --font-display:  'Syne', sans-serif;
+  --font-display:  'Space Grotesk', sans-serif;
   --font-body:     'Inter', sans-serif;
   --font-mono:     'JetBrains Mono', monospace;
 
@@ -72,28 +72,31 @@ body {
 .font-display { font-family: var(--font-display); }
 .font-mono    { font-family: var(--font-mono); }
 
+/* Hero headline: ~72-76px desktop, 56-64px tablet, 42-48px mobile */
 .text-display {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 9vw, 8rem);
-  font-weight: 800;
-  line-height: 0.95;
+  font-size: clamp(2.625rem, 8.5vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.97;
+  letter-spacing: -0.04em;
+}
+
+/* Section headlines: ~48-56px */
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: -0.03em;
 }
 
-.text-display-md {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-}
-
+/* "Who I Am" heading: ~38-42px desktop */
 .text-display-sm {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+  font-weight: 600;
+  line-height: 1.27;
+  letter-spacing: -0.025em;
 }
 
 .text-heading {

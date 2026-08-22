@@ -44,7 +44,7 @@ export default function Introduction() {
             style={{
               color: 'var(--color-text)',
               marginBottom: '2.5rem',
-              maxWidth: '900px',
+              maxWidth: '860px',
             }}
           >
             {words.map((word, i) => (
@@ -69,12 +69,15 @@ export default function Introduction() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ maxWidth: '680px' }}
+            style={{ maxWidth: '700px' }}
           >
             <p
               style={{
-                fontSize: 'clamp(1rem, 1.2vw, 1.15rem)',
+                fontFamily: 'var(--font-body)',
+                fontSize: 'clamp(0.9rem, 1.05vw, 1.0625rem)',
+                fontWeight: 400,
                 lineHeight: 1.65,
+                letterSpacing: '0',
                 color: 'var(--color-text-2)',
               }}
             >
