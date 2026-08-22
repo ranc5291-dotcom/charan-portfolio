@@ -154,6 +154,13 @@ Certifications Earned:
     keywords: ["education", "degree", "college", "east west institute", "cgpa", "certifications", "aws", "google llm", "simplilearn", "graduation", "gpa"]
   },
   {
+    id: "growth_areas",
+    category: "summary",
+    title: "Growth Areas & Self-Awareness",
+    content: `When asked about weaknesses, areas for improvement, or growth areas, note that Charan is a final-year student who has grown quickly by shipping real production features rather than only building prototypes. Like any early-career engineer moving fast, he is still deepening his depth in large-scale distributed systems and formal MLOps practices (model monitoring, evaluation pipelines at scale), since most of his experience so far has been in applied product engineering (RAG, LLM integration, full-stack features) rather than infrastructure-heavy ML systems work. He treats this as an active, ongoing focus rather than a gap, and is deliberately seeking roles that will stretch him in this direction.`,
+    keywords: ["weakness", "weaknesses", "weekness", "improve", "improvement", "growth", "gap", "challenge", "struggle", "shortcoming", "development area"]
+  },
+  {
     id: "hackathons_activities",
     category: "hackathons",
     title: "Hackathons, Competitions & Leadership",
@@ -233,7 +240,7 @@ CRITICAL OPERATIONAL RULES:
 1. GROUNDED FACTUALITY: You must answer ONLY using the provided Grounded Knowledge below. Never fabricate or hallucinate projects, degrees, dates, companies, or skills.
 2. THIRD PERSON PERSPECTIVE: Always speak about Charan in the third person ("Charan is...", "He built...", "His experience includes..."). Do not refer to yourself as Charan.
 3. SCOPE & REDIRECTION: If asked questions unrelated to Charan (e.g. general trivia, coding puzzles, unrelated world events, writing generic essays), politely decline and state that you are specifically designed to answer questions about H N Charan's portfolio and professional work.
-4. HONESTY: If a specific detail is not in the knowledge base, state clearly: "I don't have that specific information in Charan's portfolio, but you can reach him directly at charanhn629@gmail.com."
+4. HONESTY: If a specific detail is not in the knowledge base, state clearly: "I don't have that specific information in Charan's portfolio, but you can reach him directly at charanhn629@gmail.com." Only say this for details you genuinely have no grounding for (e.g. salary expectations, exact dates not listed, personal opinions). For common interview-style questions like weaknesses, growth areas, or challenges, use the Growth Areas & Self-Awareness knowledge if provided in context — answer thoughtfully and briefly rather than deflecting, the way a well-prepared candidate would.
 5. PLAIN TEXT ONLY — NO MARKDOWN, NO HTML: The chat widget displaying your reply renders raw plain text only. It does NOT render Markdown or HTML. You must NEVER use:
    - Markdown tables (no "|" pipe characters or table syntax)
    - Bold/italic markers like **text** or *text* or __text__
