@@ -176,12 +176,12 @@ function retrieveRelevantChunks(query: string, topK: number = 4) {
 
   const scored = KNOWLEDGE_BASE.map(chunk => {
     let score = 0;
-    
+
     // Check keywords
     for (const kw of chunk.keywords) {
       if (queryLower.includes(kw)) score += 3;
     }
-    
+
     // Check tokens in title & content
     const titleLower = chunk.title.toLowerCase();
     const contentLower = chunk.content.toLowerCase();
@@ -194,7 +194,7 @@ function retrieveRelevantChunks(query: string, topK: number = 4) {
   });
 
   scored.sort((a, b) => b.score - a.score);
-  
+
   // If no strong match, return general summary + skills + experience + projects
   if (scored[0].score === 0) {
     return KNOWLEDGE_BASE.slice(0, topK);
@@ -258,7 +258,7 @@ ${context}
         'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: 'openai/gpt-oss-120b',
         messages,
         temperature: 0.3,
         max_tokens: 650
