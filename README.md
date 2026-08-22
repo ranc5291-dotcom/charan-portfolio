@@ -1,52 +1,170 @@
-# H N Charan | Developer Portfolio
+# Charan — Personal Portfolio & AI Agent
 
-A premium, highly interactive personal portfolio website designed to showcase my work as a versatile software developer and problem solver. The portfolio focuses on clean typography, smooth scroll-driven storytelling, and subtle 3D interactions.
+> An interactive personal portfolio showcasing my projects, technical skills, experience, and an AI-powered personal agent designed to help visitors learn more about my work.
 
-## 🚀 Live Demo
-*(Add your live deployment link here once deployed, e.g., https://charanhn.com or https://charanhn.vercel.app)*
+🌐 **Live Website:** https://charan-portfolio-opal.vercel.app/
 
-## ✨ Features
-*   **Immersive Hero Section**: Custom 3D interactive WebGL background powered by React Three Fiber.
-*   **Scroll-Linked Storytelling**: Smooth, continuous narrative journey through the site using Framer Motion.
-*   **Responsive & Professional Typography**: Calculated clamp-based font sizing for pixel-perfect readability on any device.
-*   **Modern Tech Stack**: Built for speed and maintainability using Vite, React, TypeScript, and modern CSS layout techniques.
-*   **Interactive UI/UX**: Hover interactions, magnetic elements, and subtle parallax effects to enhance engagement.
-
-## 🛠️ Built With
-*   **Framework**: [React 18](https://react.dev/)
-*   **Build Tool**: [Vite](https://vitejs.dev/)
-*   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Custom CSS Variables
-*   **Animation**: [Framer Motion](https://www.framer.com/motion/)
-*   **3D Elements**: [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/)
-
-## 💻 Running Locally
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/ranc5291-dotcom/charan-portfolio.git
-   cd charan-portfolio
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
-
-## 📫 Contact
-- Email: [charanhn629@gmail.com](mailto:charanhn629@gmail.com)
-- LinkedIn: [H N Charan](https://www.linkedin.com/in/hn-charan-23282329b/)
-- GitHub: [@ranc5291-dotcom](https://github.com/ranc5291-dotcom/)
+💻 **GitHub:** https://github.com/ranc5291-dotcom/charan-portfolio
 
 ---
-*Designed and built with ❤️ by H N Charan*
+
+## 🚀 About the Project
+
+This project is my personal portfolio website, built to serve as both a professional portfolio and an interactive introduction to my technical work.
+
+Instead of creating a traditional static portfolio, I integrated a **personal AI agent** that allows visitors to interact with my portfolio conversationally and learn about my projects, skills, experience, and technical interests.
+
+The goal is to combine **personal branding, modern web development, and practical AI integration** into one real-world project.
+
+---
+
+## 🤖 Personal AI Agent
+
+The portfolio includes a personal AI agent that acts as an interactive interface to my professional profile.
+
+Visitors can use the agent to ask questions such as:
+
+* What projects has Charan built?
+* What technologies does Charan work with?
+* Tell me about Charan's technical skills.
+* Which projects demonstrate his AI experience?
+* What kind of roles is Charan interested in?
+
+This makes the portfolio more interactive than a traditional resume-style website while demonstrating a practical application of AI.
+
+---
+
+## ✨ Features
+
+* 🎨 Modern personal portfolio design
+* 🤖 Integrated personal AI agent
+* 📂 Project showcase
+* 💻 Technical skills and experience
+* ⚡ Interactive animations and UI
+* 🌐 Fully deployed web application
+* 📱 Responsive design
+* 🧩 Interactive 3D elements
+* 🚀 Fast and modern frontend architecture
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
+* CSS
+
+### UI & Animation
+
+* Framer Motion
+* Three.js
+* React Three Fiber
+
+### AI
+
+* Personal AI agent integrated into the portfolio experience
+
+### Deployment
+
+* Vercel
+
+---
+
+## 🏗️ Project Structure
+
+```text
+charan-portfolio/
+├── public/
+├── src/
+│   ├── components/
+│   ├── sections/
+│   ├── assets/
+│   └── ...
+├── package.json
+├── vite.config.ts
+└── README.md
+```
+
+---
+
+## 💻 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+* Node.js
+* npm
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ranc5291-dotcom/charan-portfolio.git
+```
+
+Navigate to the project:
+
+```bash
+cd charan-portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will then be available at the local development URL provided by Vite.
+
+---
+
+## 🌐 Live Demo
+
+Visit the deployed portfolio:
+
+**https://charan-portfolio-opal.vercel.app/**
+
+The live version demonstrates the complete portfolio experience, including the interactive personal AI agent.
+
+---
+
+## 🎯 Project Purpose
+
+This project was created as a practical demonstration of my ability to:
+
+* Build and deploy a real-world web application
+* Create a professional personal brand
+* Work with modern frontend technologies
+* Integrate AI into a useful user-facing experience
+* Design an interactive and responsive interface
+* Present technical projects through an accessible portfolio
+
+The project combines **web development + AI + personal branding** into one deployable application.
+
+
+---
+
+## 👨‍💻 About Me
+
+I'm **Charan**, a developer interested in building practical software and AI-powered applications.
+
+This portfolio represents my ongoing work, projects, technical interests, and experimentation with modern web technologies and AI.
+
+---
+
+⭐ If you find this project interesting, feel free to explore the repository and visit the live portfolio.
+
+**Built with React, TypeScript, modern web technologies, and AI.**
+
