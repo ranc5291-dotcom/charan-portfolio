@@ -66,7 +66,7 @@ export default function PortfolioAgent() {
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: "I encountered a temporary connection issue. Please check your network or try again in a moment.",
+        content: err?.message || "I encountered a temporary connection issue. Please check your network or try again in a moment.",
         isError: true,
         timestamp: new Date()
       };
