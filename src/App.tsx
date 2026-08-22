@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import PortfolioAgent from './components/PortfolioAgent';
 import Hero from './sections/Hero';
 import Introduction from './sections/Introduction';
 import About from './sections/About';
@@ -43,6 +44,9 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/case-study/:id" element={<CaseStudy />} />
         </Routes>
+
+        {/* AI Portfolio Agent Chat Widget */}
+        <PortfolioAgent />
       </BrowserRouter>
     </>
   );
