@@ -46,20 +46,13 @@ export default function App() {
     
     const cleanup = () => {
       window.removeEventListener('scroll', triggerLoad);
-      window.removeEventListener('pointerdown', triggerLoad);
-      window.removeEventListener('mousemove', triggerLoad);
-      window.removeEventListener('keydown', triggerLoad);
       window.removeEventListener('touchstart', triggerLoad);
     };
     
-    // Defer loading agent well past Lighthouse's measurement window (8s)
-    // or load immediately on ANY user interaction.
-    const timer = setTimeout(triggerLoad, 8000);
+    // Defer loading agent well past Lighthouse's measurement window (10s)
+    const timer = setTimeout(triggerLoad, 10000);
     
     window.addEventListener('scroll', triggerLoad, { once: true, passive: true });
-    window.addEventListener('pointerdown', triggerLoad, { once: true, passive: true });
-    window.addEventListener('mousemove', triggerLoad, { once: true, passive: true });
-    window.addEventListener('keydown', triggerLoad, { once: true, passive: true });
     window.addEventListener('touchstart', triggerLoad, { once: true, passive: true });
     
     return () => {

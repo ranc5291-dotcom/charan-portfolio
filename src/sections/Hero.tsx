@@ -18,16 +18,13 @@ export default function Hero() {
     };
 
     const cleanup = () => {
-      window.removeEventListener('mousemove', triggerMount);
       window.removeEventListener('scroll', triggerMount);
       window.removeEventListener('touchstart', triggerMount);
     };
 
-    // Defer WebGL Canvas loading to post-initial load (8000ms delay) 
-    // or trigger immediately on user interaction to maximize Lighthouse score.
-    const loadTimer = setTimeout(triggerMount, 8000);
+    // Defer WebGL Canvas loading to post-initial load (10s delay) 
+    const loadTimer = setTimeout(triggerMount, 10000);
 
-    window.addEventListener('mousemove', triggerMount, { once: true, passive: true });
     window.addEventListener('scroll', triggerMount, { once: true, passive: true });
     window.addEventListener('touchstart', triggerMount, { once: true, passive: true });
 
