@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
 import { useWebGL } from '../hooks/useInView';
-import AICore from '../components/three/AICore';
+
+const HeroCanvas = lazy(() => import('../components/three/HeroCanvas'));
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -64,26 +64,14 @@ export default function Hero() {
           }}
           aria-hidden="true"
         >
-          <Canvas camera={{ position: [0, 0, 8], fov: 45 }} gl={{ alpha: true }}>
-            <ambientLight intensity={0.25} />
-            <pointLight position={[10, 10, 10]} intensity={0.6} />
-            <group position={[3.5, 0, -2]} scale={1.4}>
-              <AICore
-                mouseX={mousePos.x}
-                mouseY={mousePos.y}
-                clicked={clicked}
-                onCoreClick={handleCoreClick}
-              />
-            </group>
-            <group position={[-4, 2, -4]} scale={0.75}>
-              <AICore
-                mouseX={mousePos.x}
-                mouseY={mousePos.y}
-                clicked={false}
-                onCoreClick={() => {}}
-              />
-            </group>
-          </Canvas>
+          <Suspense fallback={null}>
+            <HeroCanvas
+              mouseX={mousePos.x}
+              mouseY={mousePos.y}
+              clicked={clicked}
+              onCoreClick={handleCoreClick}
+            />
+          </Suspense>
         </motion.div>
       )}
 
