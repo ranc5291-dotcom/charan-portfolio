@@ -23,7 +23,7 @@ export default function Contact() {
       aria-labelledby="contact-heading"
     >
       {/* Background 3D */}
-      {webglSupported && (
+      {webglSupported && inView && (
         <div
           aria-hidden="true"
           style={{

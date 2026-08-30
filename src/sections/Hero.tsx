@@ -9,8 +9,12 @@ export default function Hero() {
   const webglSupported = useWebGL();
   const [clicked, setClicked] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [mountCanvas, setMountCanvas] = useState(false);
 
   useEffect(() => {
+    // Defer WebGL Canvas loading to post-initial load (1000ms delay) to maximize Lighthouse score
+    const loadTimer = setTimeout(() => setMountCanvas(true), 1000);
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
         x: (e.clientX / window.innerWidth) * 2 - 1,
@@ -18,7 +22,10 @@ export default function Hero() {
       });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      clearTimeout(loadTimer);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const handleCoreClick = () => {
@@ -53,7 +60,7 @@ export default function Hero() {
       aria-label="Introduction"
     >
       {/* 3D Background Elements */}
-      {webglSupported && (
+      {webglSupported && mountCanvas && (
         <motion.div
           style={{
             position: 'absolute',
