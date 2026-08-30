@@ -172,6 +172,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.55 }}
+            className="contact-email-row"
             style={{
               display: 'flex',
               alignItems: 'center',

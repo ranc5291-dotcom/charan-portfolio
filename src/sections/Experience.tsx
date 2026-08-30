@@ -98,7 +98,7 @@ export default function Experience() {
                   style={{ flex: 1, padding: '1.75rem' }}
                 >
                   {/* Header */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+                  <div className="exp-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.35rem', flexWrap: 'wrap' }}>
                         <h3
@@ -130,7 +130,7 @@ export default function Experience() {
                       </p>
                     </div>
 
-                    <div style={{ textAlign: 'right' }}>
+                    <div className="exp-meta" style={{ textAlign: 'right' }}>
                       <p className="text-meta">{item.period}</p>
                       <p className="text-meta" style={{ marginTop: '0.2rem' }}>{item.location}</p>
                     </div>

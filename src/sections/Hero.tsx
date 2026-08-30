@@ -130,7 +130,7 @@ export default function Hero() {
             style={{
               color: 'var(--color-text)',
               marginBottom: '1.75rem',
-              maxWidth: '780px',
+              maxWidth: 'min(780px, 100%)',
               textShadow: '0 8px 30px rgba(0,0,0,0.7)',
             }}
           >
@@ -151,14 +151,14 @@ export default function Hero() {
               color: 'var(--color-text-2)',
               lineHeight: 1.6,
               letterSpacing: '0',
-              maxWidth: '660px',
+              maxWidth: 'min(660px, 100%)',
               marginBottom: '2.5rem',
             }}
           >
             I build digital products, intelligent applications, and practical solutions across software, AI, and modern web technologies.
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="hero-cta-row" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#work" className="btn-primary" id="hero-btn-work">
               Explore Selected Work →
             </a>

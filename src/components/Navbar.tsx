@@ -59,9 +59,10 @@ export default function Navbar() {
             backdropFilter: scrolled ? 'blur(16px)' : 'none',
             borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
             padding: scrolled ? '0.85rem var(--section-pad-x)' : '1.5rem var(--section-pad-x)',
+            overflow: 'hidden',
           }}
         >
-          <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ maxWidth: '1400px', width: '100%', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             {/* Logo */}
             <a
               href="#"

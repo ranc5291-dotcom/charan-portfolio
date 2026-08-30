@@ -27,6 +27,7 @@ export default function About() {
       aria-labelledby="about-heading"
     >
       <div
+        className="about-grid"
         style={{
           maxWidth: '1400px',
           margin: '0 auto',
