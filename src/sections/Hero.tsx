@@ -12,20 +12,40 @@ export default function Hero() {
   const [mountCanvas, setMountCanvas] = useState(false);
 
   useEffect(() => {
-    // Defer WebGL Canvas loading to post-initial load (1000ms delay) to maximize Lighthouse score
-    const loadTimer = setTimeout(() => setMountCanvas(true), 1000);
+    const triggerMount = () => {
+      setMountCanvas(true);
+      cleanup();
+    };
 
+    const cleanup = () => {
+      window.removeEventListener('mousemove', triggerMount);
+      window.removeEventListener('scroll', triggerMount);
+      window.removeEventListener('touchstart', triggerMount);
+    };
+
+    // Defer WebGL Canvas loading to post-initial load (8000ms delay) 
+    // or trigger immediately on user interaction to maximize Lighthouse score.
+    const loadTimer = setTimeout(triggerMount, 8000);
+
+    window.addEventListener('mousemove', triggerMount, { once: true, passive: true });
+    window.addEventListener('scroll', triggerMount, { once: true, passive: true });
+    window.addEventListener('touchstart', triggerMount, { once: true, passive: true });
+
+    return () => {
+      clearTimeout(loadTimer);
+      cleanup();
+    };
+  }, []);
+
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
         x: (e.clientX / window.innerWidth) * 2 - 1,
         y: -(e.clientY / window.innerHeight) * 2 + 1,
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      clearTimeout(loadTimer);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const handleCoreClick = () => {
