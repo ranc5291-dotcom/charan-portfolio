@@ -119,12 +119,7 @@ export default function Hero() {
           pointerEvents: 'none',
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ pointerEvents: 'auto' }}
-        >
+        <div style={{ pointerEvents: 'auto' }}>
           <span
             style={{
               fontFamily: 'var(--font-mono)',
@@ -146,7 +141,7 @@ export default function Hero() {
               color: 'var(--color-text)',
               marginBottom: '1.75rem',
               maxWidth: 'min(780px, 100%)',
-              textShadow: '0 8px 30px rgba(0,0,0,0.7)',
+              textShadow: '0 4px 12px rgba(0,0,0,0.4)',
             }}
           >
             Developer.
@@ -181,7 +176,7 @@ export default function Hero() {
               Let's Connect
             </a>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div
