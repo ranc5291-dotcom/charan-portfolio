@@ -29,6 +29,22 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
+    id: 'ai-tools',
+    label: 'AI Tools & Development Platforms',
+    color: '#2dd4bf',
+    skills: [
+      { id: 'lovable', label: 'Lovable', category: 'AI Tools & Development Platforms', description: 'Full-stack AI development platform for rapid application building, visual prototyping, and prompt-driven software development.', related: ['react', 'typescript', 'google-antigravity'] },
+      { id: 'google-antigravity', label: 'Google Antigravity', category: 'AI Tools & Development Platforms', description: 'Advanced agentic coding and AI developer platform for intelligent pair programming, workflow execution, and multi-agent systems.', related: ['google-gemini', 'claude-code', 'gen-ai'] },
+      { id: 'curzo', label: 'Curzo', category: 'AI Tools & Development Platforms', description: 'AI-assisted development platform and intelligent coding companion designed to accelerate software engineering and code generation.', related: ['chatgpt', 'claude-code', 'typescript'] },
+      { id: 'claude-code', label: 'Claude Code', category: 'AI Tools & Development Platforms', description: 'Agentic command-line interface and coding assistant from Anthropic, enabling terminal-based AI pair programming, codebase exploration, and automated refactoring.', related: ['google-antigravity', 'chatgpt', 'llms'] },
+      { id: 'chatgpt', label: 'ChatGPT', category: 'AI Tools & Development Platforms', description: 'Conversational AI and prompt engineering environment powered by OpenAI models for architecture brainstorming, debugging, and code generation.', related: ['openai-codex', 'llms', 'prompt-eng'] },
+      { id: 'google-gemini', label: 'Google Gemini', category: 'AI Tools & Development Platforms', description: 'Multimodal AI platform and models by Google used for complex reasoning, long-context analysis, code synthesis, and intelligent application integration.', related: ['google-antigravity', 'llms', 'gen-ai'] },
+      { id: 'n8n', label: 'n8n', category: 'AI Tools & Development Platforms', description: 'Workflow automation and orchestration platform for connecting AI agents, REST APIs, databases, and custom webhooks into cohesive pipelines.', related: ['langflow', 'rest-apis', 'fastapi'] },
+      { id: 'langflow', label: 'Langflow', category: 'AI Tools & Development Platforms', description: 'Visual development framework and UI for prototyping, orchestrating, and experimenting with LangChain pipelines and multi-agent RAG architectures.', related: ['langchain', 'langgraph', 'rag', 'n8n'] },
+      { id: 'openai-codex', label: 'OpenAI Codex', category: 'AI Tools & Development Platforms', description: 'Specialized AI model architecture designed for code translation, algorithmic synthesis, and AI-assisted programming.', related: ['chatgpt', 'llms', 'python', 'typescript'] },
+    ],
+  },
+  {
     id: 'development',
     label: 'Development',
     color: '#7c6af7',
@@ -77,7 +93,7 @@ export const skillCategories: SkillCategory[] = [
     label: 'Automation',
     color: '#f74fdc',
     skills: [
-      { id: 'n8n', label: 'n8n', category: 'Automation', description: 'No-code workflow automation for integrating APIs and services.', related: ['rest-apis'] },
+      { id: 'workflow-automation', label: 'Workflow Automation', category: 'Automation', description: 'Designing event-driven automations, webhook integrations, and scheduled tasks.', related: ['n8n', 'rest-apis'] },
     ],
   },
   {

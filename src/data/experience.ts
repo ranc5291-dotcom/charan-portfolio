@@ -4,6 +4,7 @@ export interface ExperienceItem {
   role: string;
   period: string;
   location: string;
+  workMode?: string;
   type: string;
   isCurrent: boolean;
   focus?: string;
@@ -16,19 +17,18 @@ export const experience: ExperienceItem[] = [
     id: 'flyrank',
     company: 'FlyRank AI',
     role: 'AI Engineer Intern',
-    period: 'Present',
-    location: 'Bengaluru | Remote',
+    period: 'July 2026 – August 2026',
+    location: 'Bengaluru, India',
+    workMode: 'Remote',
     type: 'Internship',
-    isCurrent: true,
-    focus: 'AI Engineer | AI-Powered Frontend Development',
+    isCurrent: false,
     responsibilities: [
-      'Building and integrating AI-powered product features',
-      'Developing AI-enhanced frontend experiences',
-      'Integrating LLM capabilities into user-facing applications',
-      'Building production-oriented features with React, TypeScript, AI APIs, and modern frontend workflows',
-      'Contributing to testing, error handling, and deployment',
+      'Worked with LLMs, prompt engineering, AI APIs, and AI tools for AI-powered application development.',
+      'Worked on AI workflows and LLM integrations using React, TypeScript, and REST APIs.',
+      'Applied prompt optimization, structured outputs, and error-handling techniques to improve AI workflows.',
+      'Contributed to system design, testing, debugging, and deployment of AI-powered features.',
     ],
-    technologies: ['React', 'TypeScript', 'LLMs', 'AI APIs'],
+    technologies: ['React', 'TypeScript', 'LLMs', 'AI APIs', 'REST APIs', 'Prompt Engineering'],
   },
   {
     id: 'innomatic',

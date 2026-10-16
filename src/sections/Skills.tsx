@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import { skillCategories, allSkills, type SkillNode } from '../data/skills';
+import { SkillIcon } from '../components/SkillIcon';
 
 export default function Skills() {
   const [ref, inView] = useInView(0.1);
@@ -118,17 +119,35 @@ export default function Skills() {
                   className="card"
                   style={{ borderColor: 'rgba(79,142,247,0.3)' }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <div>
-                      <span className="text-label" style={{ marginBottom: '0.5rem', display: 'block' }}>
-                        {selectedSkill.category}
-                      </span>
-                      <h3
-                        className="font-display"
-                        style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--color-text)', marginBottom: '0.75rem' }}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <div
+                        style={{
+                          width: '38px',
+                          height: '38px',
+                          borderRadius: '10px',
+                          background: 'var(--color-bg-2)',
+                          border: '1px solid var(--color-border)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'var(--color-accent)',
+                          flexShrink: 0,
+                        }}
                       >
-                        {selectedSkill.label}
-                      </h3>
+                        <SkillIcon id={selectedSkill.id} size={20} color="var(--color-accent)" />
+                      </div>
+                      <div>
+                        <span className="text-label" style={{ marginBottom: '0.2rem', display: 'block' }}>
+                          {selectedSkill.category}
+                        </span>
+                        <h3
+                          className="font-display"
+                          style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--color-text)', margin: 0 }}
+                        >
+                          {selectedSkill.label}
+                        </h3>
+                      </div>
                     </div>
                     <button
                       onClick={() => setSelectedSkill(null)}
@@ -158,10 +177,14 @@ export default function Skills() {
                                 borderColor: 'rgba(79,142,247,0.25)',
                                 color: 'var(--color-accent)',
                                 transition: 'all 0.15s',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.35rem',
                               }}
                               aria-label={`View ${relSkill.label} skill`}
                             >
-                              {relSkill.label}
+                              <SkillIcon id={relSkill.id} size={12} color="var(--color-accent)" />
+                              <span>{relSkill.label}</span>
                             </button>
                           ) : null;
                         })}
@@ -237,11 +260,15 @@ export default function Skills() {
                           fontWeight: 500,
                           cursor: 'pointer',
                           transition: 'all 0.15s',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.45rem',
                         }}
                         aria-pressed={selectedSkill?.id === skill.id}
                         aria-label={`${skill.label} — click for details`}
                       >
-                        {skill.label}
+                        <SkillIcon id={skill.id} size={14} color={selectedSkill?.id === skill.id ? cat.color : 'currentColor'} />
+                        <span>{skill.label}</span>
                       </motion.button>
                     ))}
                   </div>

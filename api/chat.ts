@@ -31,27 +31,29 @@ Career Interest & Availability: Actively pursuing a full-time career as an AI En
     title: "Technical Skills & Competencies",
     content: `Programming Languages: Python, SQL, TypeScript, JavaScript
 AI / Machine Learning / GenAI: Generative AI, Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), Vector Embeddings, Vector Databases, Prompt Engineering, Agentic Workflows, Machine Learning
+AI Tools & Development Platforms: Lovable, Google Antigravity, Curzo, Claude Code, ChatGPT, Google Gemini, n8n, Langflow, OpenAI Codex
 Frameworks & Libraries: LangChain, LangGraph, FastAPI, React, REST APIs, Docker, Vite, Tailwind CSS, Framer Motion
 Databases & Storage: ChromaDB, Supabase, PostgreSQL, Firebase / Firestore, MongoDB
 Testing & DevOps: Vitest, React Testing Library, Playwright, GitHub Actions, Vercel, Render, CI/CD pipelines
-Workflow Automation: n8n
+Workflow Automation: n8n, Workflow Automation
 Data & Business Intelligence: Microsoft Excel, Power BI, Tableau`,
-    keywords: ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "databases", "devops"]
+    keywords: ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "databases", "devops", "lovable", "antigravity", "curzo", "claude code", "chatgpt", "gemini", "langflow", "codex", "ai tools"]
   },
   {
     id: "exp_flyrank",
     category: "experience",
     title: "Work Experience - AI Engineer Intern at FlyRank AI",
     content: `Company: FlyRank AI
-Role: AI Engineer Intern | AI-Powered Frontend & System Development
-Location: Bengaluru (Remote)
-Period: Present (Current)
+Role: AI Engineer Intern
+Duration: July 2026 – August 2026
+Location: Bengaluru, India
+Work Mode: Remote
 Key Contributions:
-- Works on core AI engineering tasks focused on building and integrating AI-powered product features.
-- Develops AI-enhanced frontend experiences and integrates LLM capabilities into user-facing web applications.
-- Builds and refines production-oriented features using React, TypeScript, AI APIs, and modern engineering workflows.
-- Contributes to end-to-end AI application development, testing, error handling, and deployment throughout the product lifecycle.`,
-    keywords: ["flyrank", "flyrank ai", "internship", "ai engineer intern", "experience", "work", "current job", "present", "frontend"]
+- Worked with LLMs, prompt engineering, AI APIs, and AI tools for AI-powered application development.
+- Worked on AI workflows and LLM integrations using React, TypeScript, and REST APIs.
+- Applied prompt optimization, structured outputs, and error-handling techniques to improve AI workflows.
+- Contributed to system design, testing, debugging, and deployment of AI-powered features.`,
+    keywords: ["flyrank", "flyrank ai", "internship", "ai engineer intern", "experience", "work", "frontend", "rest apis"]
   },
   {
     id: "exp_innomatic",

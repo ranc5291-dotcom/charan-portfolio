@@ -132,7 +132,9 @@ export default function Experience() {
 
                     <div className="exp-meta" style={{ textAlign: 'right' }}>
                       <p className="text-meta">{item.period}</p>
-                      <p className="text-meta" style={{ marginTop: '0.2rem' }}>{item.location}</p>
+                      <p className="text-meta" style={{ marginTop: '0.2rem' }}>
+                        {item.location}{item.workMode ? ` · ${item.workMode}` : ''}
+                      </p>
                     </div>
                   </div>
 
