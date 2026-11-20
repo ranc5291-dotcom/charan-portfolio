@@ -5,25 +5,30 @@ const KNOWLEDGE_BASE = [
   {
     id: "contact_info",
     category: "contact",
-    title: "Contact Information",
+    title: "Contact Information & Resume",
     content: `Name: H N Charan
-Role: AI Engineer Intern & Final-Year Computer Science (AIML) Student
+Role: AI Engineer & Final-Year Computer Science (AIML) Student
 Phone: +91-7337615979
 Email: charanhn629@gmail.com
 LinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/
 GitHub: https://github.com/ranc5291-dotcom
 Location: Bengaluru, Karnataka, India
-Languages Spoken: English, Kannada, Hindi`,
-    keywords: ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages", "number", "call"]
+Languages Spoken: English, Kannada, Hindi
+Resume: Downloadable directly from the portfolio website (available via the "Resume" button in the navbar, "Download Resume" in the hero section, and "Resume" in the contact section, linking to /Charan_Resume.pdf).`,
+    keywords: ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages", "number", "call", "resume", "cv", "download resume", "pdf"]
   },
   {
     id: "professional_summary",
     category: "summary",
-    title: "Professional Summary & Career Interest",
-    content: `H N Charan is a final-year Computer Science (AIML) student and AI Engineer Intern with hands-on experience building AI-powered applications, GenAI solutions, RAG systems, and intelligent user experiences. He focuses on building production-ready systems rather than just prototypes — having shipped RAG pipelines, agentic LLM workflows, and full-stack AI backends. He is passionate about developing practical AI solutions and solving real-world problems through modern technologies.
+    title: "Professional Summary, Career Interest & Availability",
+    content: `H N Charan is a final-year Computer Science (AIML) student and AI Engineer with hands-on experience building AI-powered applications, GenAI solutions, RAG systems, and intelligent user experiences. He focuses on building production-ready systems rather than just prototypes — having shipped RAG pipelines, agentic LLM workflows, and full-stack AI backends. He is passionate about developing practical AI solutions and solving real-world problems through modern technologies.
 
-Career Interest & Availability: Actively pursuing a full-time career as an AI Engineer, with a core focus on Applied AI / GenAI Engineering. He is fully open to full-time roles, internships, and opportunities involving RAG systems, LLM application development, agentic workflows, and AI-powered product engineering.`,
-    keywords: ["summary", "about", "bio", "career", "availability", "full-time", "job", "open to work", "roles", "goals", "interest", "hire"]
+Career Interest & Availability:
+- Open to full-time AI Engineer roles? Yes, he is looking for fresher AI / GenAI engineer roles, based in Bengaluru.
+- Core Focus: Applied AI / GenAI Engineering, RAG systems, LLM application development, agentic workflows, and AI-powered product engineering.
+- Opportunities: Fully open to fresher AI engineer roles, full-time positions, internships, and high-impact AI opportunities.
+- Resume & Contact: Resume is downloadable from the portfolio (nav, hero, and contact section). Charan can be reached at charanhn629@gmail.com, or through the LinkedIn (https://www.linkedin.com/in/hn-charan-23282329b/) and GitHub (https://github.com/ranc5291-dotcom) links on the site.`,
+    keywords: ["summary", "about", "bio", "career", "availability", "full-time", "job", "open to work", "roles", "goals", "interest", "hire", "fresher", "ai engineer", "genai", "bengaluru", "open to full-time", "full-time ai engineer", "open to full-time ai engineer roles"]
   },
   {
     id: "technical_skills",
@@ -31,13 +36,13 @@ Career Interest & Availability: Actively pursuing a full-time career as an AI En
     title: "Technical Skills & Competencies",
     content: `Programming Languages: Python, SQL, TypeScript, JavaScript
 AI / Machine Learning / GenAI: Generative AI, Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), Vector Embeddings, Vector Databases, Prompt Engineering, Agentic Workflows, Machine Learning
-AI Tools & Development Platforms: Lovable, Google Antigravity, Curzo, Claude Code, ChatGPT, Google Gemini, n8n, Langflow, OpenAI Codex
+AI Tools & Development Platforms: Lovable, Google Antigravity, Cursor, Claude Code, ChatGPT, Google Gemini, n8n, Langflow, OpenAI Codex
 Frameworks & Libraries: LangChain, LangGraph, FastAPI, React, REST APIs, Docker, Vite, Tailwind CSS, Framer Motion
 Databases & Storage: ChromaDB, Supabase, PostgreSQL, Firebase / Firestore, MongoDB
 Testing & DevOps: Vitest, React Testing Library, Playwright, GitHub Actions, Vercel, Render, CI/CD pipelines
 Workflow Automation: n8n, Workflow Automation
 Data & Business Intelligence: Microsoft Excel, Power BI, Tableau`,
-    keywords: ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "databases", "devops", "lovable", "antigravity", "curzo", "claude code", "chatgpt", "gemini", "langflow", "codex", "ai tools"]
+    keywords: ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "databases", "devops", "lovable", "antigravity", "cursor", "claude code", "chatgpt", "gemini", "langflow", "codex", "ai tools"]
   },
   {
     id: "exp_flyrank",
@@ -116,15 +121,23 @@ Key Highlights:
     id: "proj_cseaiml_lms",
     category: "projects",
     title: "Project - CSEAIML LMS: Full-Stack Department LMS (PWA)",
-    content: `Project Name: CSEAIML LMS — Progressive Web App for CSE (AIML) Department
+    content: `Project Name: CSEAIML LMS — Full-Stack Department LMS (PWA)
+Status: Live production PWA for the CSE (AI/ML) department with 100+ active students and faculty users
 Institution: East West Institute of Technology, Bengaluru
-Stack: React, Vite, Tailwind CSS v4, FastAPI, Firebase Auth, Firestore, Supabase (PostgreSQL & Storage), Cloudinary
-Key Highlights:
-- Role-based portals for Students, Faculty, Placement Officers, and Administrators.
-- Internal marks management with per-internal test configs, publish/unpublish toggles, and bulk CSV/Excel upload.
-- Placement drive and resource management with Supabase Storage, FCM push notifications, phone OTP authentication, and PWA install capabilities.
-- Deployed live on Vercel.`,
-    keywords: ["lms", "cseaiml lms", "college", "pwa", "supabase", "firebase", "fastapi", "east west institute", "projects"]
+Repository: https://github.com/ranc5291-dotcom/CSE-AIML---LMS-APP
+Live: https://cse-aiml-lms-app.vercel.app
+Stack: React, Vite, Tailwind v4, Firebase (Auth, Firestore, FCM), Supabase (PostgreSQL, Storage), Cloudinary, FastAPI backend, Groq-powered in-app AI support agent
+Features:
+- Role-based dashboards for student, faculty, HOD, and admin.
+- Semester-aware student views and progression tracking.
+- Internal marks with publish/unpublish and CSV/Excel bulk upload.
+- Attendance uploads and monitoring.
+- Department notice board and placement drives.
+- Phone and email OTP login.
+- FCM push notifications.
+- Installable PWA on Android and iOS.
+- In-app AI support agent powered by Groq for answering college and departmental inquiries.`,
+    keywords: ["lms", "cseaiml lms", "college", "pwa", "supabase", "firebase", "fastapi", "east west institute", "projects", "live", "100+ users", "groq", "attendance", "marks", "hod", "fcm", "android", "ios"]
   },
   {
     id: "proj_other",
@@ -242,15 +255,16 @@ CRITICAL OPERATIONAL RULES:
 1. GROUNDED FACTUALITY: You must answer ONLY using the provided Grounded Knowledge below. Never fabricate or hallucinate projects, degrees, dates, companies, or skills.
 2. THIRD PERSON PERSPECTIVE: Always speak about Charan in the third person ("Charan is...", "He built...", "His experience includes..."). Do not refer to yourself as Charan.
 3. SCOPE & REDIRECTION: If asked questions unrelated to Charan (e.g. general trivia, coding puzzles, unrelated world events, writing generic essays), politely decline and state that you are specifically designed to answer questions about H N Charan's portfolio and professional work.
-4. HONESTY: If a specific detail is not in the knowledge base, state clearly: "I don't have that specific information in Charan's portfolio, but you can reach him directly at charanhn629@gmail.com." Only say this for details you genuinely have no grounding for (e.g. salary expectations, exact dates not listed, personal opinions). For common interview-style questions like weaknesses, growth areas, or challenges, use the Growth Areas & Self-Awareness knowledge if provided in context — answer thoughtfully and briefly rather than deflecting, the way a well-prepared candidate would.
-5. PLAIN TEXT ONLY — NO MARKDOWN, NO HTML: The chat widget displaying your reply renders raw plain text only. It does NOT render Markdown or HTML. You must NEVER use:
+4. HONESTY & DEFLECTION: If a specific detail is not in the knowledge base, state clearly: "I don't have that information in Charan's portfolio, but you can reach him directly at charanhn629@gmail.com." Only say this for details you genuinely have no grounding for (e.g. salary expectations, exact dates not listed, personal opinions). For common interview-style questions like weaknesses, growth areas, or challenges, use the Growth Areas & Self-Awareness knowledge if provided in context — answer thoughtfully and briefly rather than deflecting, the way a well-prepared candidate would.
+5. FULL-TIME ROLE AVAILABILITY: If asked "Is he open to full-time AI Engineer roles?" (or similar career interest queries), answer clearly: yes, he is looking for fresher AI / GenAI engineer roles, based in Bengaluru, and point to his resume (downloadable from the navbar, hero, and contact section) and contact links (charanhn629@gmail.com, LinkedIn, GitHub).
+6. PLAIN TEXT ONLY — NO MARKDOWN, NO HTML: The chat widget displaying your reply renders raw plain text only. It does NOT render Markdown or HTML. You must NEVER use:
    - Markdown tables (no "|" pipe characters or table syntax)
    - Bold/italic markers like **text** or *text* or __text__
    - HTML tags like <br>, <b>, <ul>, <li>
    - Markdown headers like ### or ##
    Instead, for lists use a simple hyphen "-" at the start of a line followed by a space, with each item on its own line (real newlines, not <br>). Use plain sentence case for emphasis instead of bold/italic.
-6. LENGTH & STRUCTURE: Keep answers concise. When listing multiple projects or skills, use short plain-text bullet lines (one item per line: "- Name: one-sentence description") rather than dense paragraphs or tables.
-7. TONE: Professional, concise, articulate, and welcoming.
+7. LENGTH & STRUCTURE: Keep answers concise. When listing multiple projects or skills, use short plain-text bullet lines (one item per line: "- Name: one-sentence description") rather than dense paragraphs or tables.
+8. TONE: Professional, concise, articulate, and welcoming.
 
 ==================================================
 GROUNDED KNOWLEDGE ABOUT H N CHARAN:

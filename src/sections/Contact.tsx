@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import { useWebGL } from '../hooks/useInView';
 
@@ -8,6 +8,7 @@ const ContactCanvas = lazy(() => import('../components/three/ContactCanvas'));
 export default function Contact() {
   const [ref, inView] = useInView(0.1);
   const webglSupported = useWebGL();
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
@@ -40,7 +41,11 @@ export default function Contact() {
       )}
 
       {/* Content */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
         style={{
           position: 'relative',
           zIndex: 1,
@@ -48,21 +53,13 @@ export default function Contact() {
           margin: '0 auto',
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+        <div className="section-eyebrow">
           <span className="text-label">Get in Touch</span>
-        </motion.div>
+        </div>
 
         <div style={{ maxWidth: '680px' }}>
-          <motion.h2
+          <h2
             id="contact-heading"
-            initial={{ opacity: 0, y: 32 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 }}
             className="font-display"
             style={{
               fontSize: 'clamp(2.2rem, 5vw, 4.5rem)',
@@ -74,12 +71,9 @@ export default function Contact() {
             }}
           >
             Let's build something <span className="gradient-text">useful.</span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.25 }}
+          <p
             style={{
               fontSize: 'clamp(0.95rem, 1.5vw, 1.05rem)',
               color: 'var(--color-text-2)',
@@ -88,12 +82,9 @@ export default function Contact() {
             }}
           >
             Have an idea, a problem worth solving, or simply want to connect? I'd be happy to hear from you.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
+          <div
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}
           >
             <a
@@ -107,6 +98,20 @@ export default function Contact() {
                 <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" />
               </svg>
               Email Me
+            </a>
+            <a
+              href="/Charan_Resume.pdf"
+              download
+              className="btn-ghost"
+              id="contact-resume"
+              aria-label="Download H N Charan's Resume"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Resume
             </a>
             <a
               href="https://www.linkedin.com/in/hn-charan-23282329b/"
@@ -135,13 +140,10 @@ export default function Contact() {
               </svg>
               GitHub
             </a>
-          </motion.div>
+          </div>
 
           {/* Email display */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.55 }}
+          <div
             className="contact-email-row"
             style={{
               display: 'flex',
@@ -168,9 +170,9 @@ export default function Contact() {
             >
               charanhn629@gmail.com
             </a>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

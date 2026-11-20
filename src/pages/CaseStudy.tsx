@@ -35,10 +35,11 @@ export default function CaseStudy() {
   }
 
   const { caseStudy } = project;
-  const catColor = project.id === 'nexusai' ? '#4f8ef7'
+  const catColor = project.id === 'lms' ? '#22c55e'
+    : project.id === 'nexusai' ? '#4f8ef7'
     : project.id === 'prompt-studio' ? '#7c6af7'
     : project.id === 'course-recommendation' ? '#4ff7b0'
-    : project.id === 'food-delivery' ? '#f76a4f'
+    : project.id === 'yumrush' || project.id === 'food-delivery' ? '#f76a4f'
     : '#f7c94f';
 
   return (
@@ -73,8 +74,22 @@ export default function CaseStudy() {
           ← Back
         </button>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          {project.status === 'building' && (
-            <span className="badge-building">{project.statusLabel}</span>
+          {project.statusLabel && (
+            <span className={project.status === 'building' ? 'badge-building' : 'badge-live'}>
+              {project.statusLabel}
+            </span>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+              aria-label={`View ${project.title} live`}
+            >
+              Live Demo ↗
+            </a>
           )}
           {project.githubUrl && (
             <a
@@ -334,7 +349,7 @@ export default function CaseStudy() {
       {/* Bottom nav */}
       <div
         style={{
-          padding: '3rem var(--section-pad-x)',
+          padding: '3rem var(--section-pad-x) 6rem',
           borderTop: '1px solid var(--color-border)',
           maxWidth: '1400px',
           margin: '0 auto',

@@ -1,19 +1,17 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { skillCategories, allSkills, type SkillNode } from '../data/skills';
 import { SkillIcon } from '../components/SkillIcon';
 
 export default function Skills() {
-  const [ref, inView] = useInView(0.1);
-  const [selectedSkill, setSelectedSkill] = useState<SkillNode | null>(null);
+  const defaultSkill = allSkills.find(s => s.id === 'rag') || allSkills[0];
+  const [selectedSkill, setSelectedSkill] = useState<SkillNode | null>(defaultSkill);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="skills"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         borderTop: '1px solid var(--color-border)',
@@ -21,45 +19,37 @@ export default function Skills() {
       }}
       aria-labelledby="skills-heading"
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
         {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+        <div className="section-eyebrow">
           <span className="text-label">Skills</span>
-        </motion.div>
+        </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', alignItems: 'start' }}>
           {/* Left: heading + detail panel */}
           <div>
-            <motion.h2
+            <h2
               id="skills-heading"
               className="text-display-sm"
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
               style={{ color: 'var(--color-text)', marginBottom: '1rem' }}
             >
               Technology I work with.
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
+            <p
               style={{ fontSize: '0.9rem', color: 'var(--color-text-2)', lineHeight: 1.65, marginBottom: '2rem' }}
             >
               Click any skill to learn more about how I've used it.
-            </motion.p>
+            </p>
 
             {/* Category filters */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
+            <div
               style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2rem' }}
               role="group"
               aria-label="Filter skills by category"
@@ -105,16 +95,16 @@ export default function Skills() {
                   {cat.label}
                 </button>
               ))}
-            </motion.div>
+            </div>
 
             {/* Selected skill detail */}
             <AnimatePresence mode="wait">
               {selectedSkill ? (
                 <motion.div
                   key={selectedSkill.id}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -16 }}
+                  exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -16 }}
                   transition={{ duration: 0.3 }}
                   className="card"
                   style={{ borderColor: 'rgba(79,142,247,0.3)' }}
@@ -206,15 +196,16 @@ export default function Skills() {
             </AnimatePresence>
           </div>
 
-          {/* Right: Skill grid */}
+          {/* Right: Skill grid with staggered children */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <AnimatePresence>
               {(activeCategory ? skillCategories.filter(c => c.id === activeCategory) : skillCategories).map((cat, catIdx) => (
                 <motion.div
                   key={cat.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.1 + catIdx * 0.06 }}
+                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : (0.08 * catIdx) }}
                   style={{
                     background: 'var(--color-bg)',
                     border: '1px solid var(--color-border)',
@@ -247,8 +238,8 @@ export default function Skills() {
                       <motion.button
                         key={skill.id}
                         onClick={() => setSelectedSkill(selectedSkill?.id === skill.id ? null : skill)}
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.97 }}
+                        whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+                        whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
                         style={{
                           background: selectedSkill?.id === skill.id ? cat.color + '22' : 'var(--color-bg-2)',
                           border: `1px solid ${selectedSkill?.id === skill.id ? cat.color : 'var(--color-border)'}`,
@@ -277,7 +268,7 @@ export default function Skills() {
             </AnimatePresence>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

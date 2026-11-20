@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const AREAS = [
   'Software Development',
@@ -13,12 +12,11 @@ const AREAS = [
 ];
 
 export default function About() {
-  const [ref, inView] = useInView(0.15);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="about"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         background: 'var(--color-bg-2)',
@@ -26,7 +24,11 @@ export default function About() {
       }}
       aria-labelledby="about-heading"
     >
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="about-grid"
         style={{
           maxWidth: '1400px',
@@ -38,25 +40,17 @@ export default function About() {
       >
         {/* Left Col - Areas */}
         <div>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="section-eyebrow"
-          >
+          <div className="section-eyebrow">
             <span className="text-label">What I Build</span>
-          </motion.div>
+          </div>
 
-          <motion.h2
+          <h2
             id="about-heading"
             className="text-display-sm"
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
             style={{ color: 'var(--color-text)', marginBottom: '2.5rem' }}
           >
             Areas I Work Across.
-          </motion.h2>
+          </h2>
 
           <div
             style={{
@@ -68,9 +62,10 @@ export default function About() {
             {AREAS.map((area, i) => (
               <motion.div
                 key={area}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : (0.1 + i * 0.05) }}
                 style={{
                   padding: '0.75rem 1.25rem',
                   background: 'var(--color-bg)',
@@ -91,9 +86,10 @@ export default function About() {
         {/* Right Col - Education / Baseline */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : 0.2 }}
             className="card"
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -148,7 +144,7 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

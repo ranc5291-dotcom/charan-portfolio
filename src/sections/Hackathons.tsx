@@ -1,14 +1,12 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useReducedMotion } from 'framer-motion';
 import { hackathons } from '../data/certifications';
 
 export default function Hackathons() {
-  const [ref, inView] = useInView(0.1);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="hackathons"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         borderTop: '1px solid var(--color-border)',
@@ -16,26 +14,24 @@ export default function Hackathons() {
       }}
       aria-labelledby="hackathons-heading"
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
+        <div className="section-eyebrow">
           <span className="text-label">Hackathons & Activities</span>
-        </motion.div>
+        </div>
 
-        <motion.h2
+        <h2
           id="hackathons-heading"
           className="text-display-sm"
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
           style={{ color: 'var(--color-text)', marginBottom: '3rem' }}
         >
           Building & competing.
-        </motion.h2>
+        </h2>
 
         <div
           style={{
@@ -48,9 +44,10 @@ export default function Hackathons() {
             <motion.div
               key={h.id}
               className="card"
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : (0.08 * i) }}
               style={{
                 borderLeft: h.isOrganizer
                   ? '3px solid var(--color-accent-2)'
@@ -106,7 +103,7 @@ export default function Hackathons() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

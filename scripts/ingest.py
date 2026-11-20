@@ -13,34 +13,39 @@ GROUND_TRUTH_DATA = [
     {
         "id": "contact_info",
         "category": "contact",
-        "title": "Contact Information",
+        "title": "Contact Information & Resume",
         "content": (
             "Name: H N Charan\n"
-            "Role: AI Engineer Intern & Final-Year Computer Science (AIML) Student\n"
+            "Role: AI Engineer & Final-Year Computer Science (AIML) Student\n"
             "Phone: +91-7337615979\n"
             "Email: charanhn629@gmail.com\n"
             "LinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/\n"
             "GitHub: https://github.com/ranc5291-dotcom\n"
             "Location: Bengaluru, Karnataka, India\n"
-            "Languages Spoken: English, Kannada, Hindi"
+            "Languages Spoken: English, Kannada, Hindi\n"
+            "Resume: Downloadable directly from the portfolio website (available via the \"Resume\" button in the navbar, "
+            "\"Download Resume\" in the hero section, and \"Resume\" in the contact section, linking to /Charan_Resume.pdf)."
         ),
-        "keywords": ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages"]
+        "keywords": ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages", "resume", "cv", "download resume"]
     },
     {
         "id": "professional_summary",
         "category": "summary",
-        "title": "Professional Summary & Career Interest",
+        "title": "Professional Summary, Career Interest & Availability",
         "content": (
-            "H N Charan is a final-year Computer Science (AIML) student and AI Engineer Intern with hands-on experience "
+            "H N Charan is a final-year Computer Science (AIML) student and AI Engineer with hands-on experience "
             "building AI-powered applications, GenAI solutions, RAG systems, and intelligent user experiences. "
             "He focuses on building production-ready systems rather than just prototypes — having shipped RAG pipelines, "
             "agentic LLM workflows, and full-stack AI backends. He is passionate about developing practical AI solutions "
             "and solving real-world problems through modern technologies.\n\n"
-            "Career Interest & Availability: Actively pursuing a full-time career as an AI Engineer, with a core focus on "
-            "Applied AI / GenAI Engineering. He is fully open to full-time roles, internships, and opportunities involving "
-            "RAG systems, LLM application development, agentic workflows, and AI-powered product engineering."
+            "Career Interest & Availability:\n"
+            "- Open to full-time AI Engineer roles? Yes, he is looking for fresher AI / GenAI engineer roles, based in Bengaluru.\n"
+            "- Core Focus: Applied AI / GenAI Engineering, RAG systems, LLM application development, agentic workflows, and AI-powered product engineering.\n"
+            "- Opportunities: Fully open to fresher AI engineer roles, full-time positions, internships, and high-impact AI opportunities.\n"
+            "- Resume & Contact: Resume is downloadable from the portfolio (nav, hero, and contact section). Charan can be reached at charanhn629@gmail.com, "
+            "or through the LinkedIn (https://www.linkedin.com/in/hn-charan-23282329b/) and GitHub (https://github.com/ranc5291-dotcom) links on the site."
         ),
-        "keywords": ["summary", "about", "bio", "career", "availability", "full-time", "job", "open to work", "roles", "goals"]
+        "keywords": ["summary", "about", "bio", "career", "availability", "full-time", "job", "open to work", "roles", "goals", "fresher", "ai engineer", "genai", "bengaluru", "open to full-time"]
     },
     {
         "id": "technical_skills",
@@ -50,14 +55,14 @@ GROUND_TRUTH_DATA = [
             "Programming Languages: Python, SQL, TypeScript, JavaScript\n"
             "AI / Machine Learning / GenAI: Generative AI, Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), "
             "Vector Embeddings, Vector Databases, Prompt Engineering, Agentic Workflows, Machine Learning\n"
-            "AI Tools & Development Platforms: Lovable, Google Antigravity, Curzo, Claude Code, ChatGPT, Google Gemini, n8n, Langflow, OpenAI Codex\n"
+            "AI Tools & Development Platforms: Lovable, Google Antigravity, Cursor, Claude Code, ChatGPT, Google Gemini, n8n, Langflow, OpenAI Codex\n"
             "Frameworks & Libraries: LangChain, LangGraph, FastAPI, React, REST APIs, Docker, Vite, Tailwind CSS, Framer Motion\n"
             "Databases & Storage: ChromaDB, Supabase, PostgreSQL, Firebase / Firestore, MongoDB\n"
             "Testing & DevOps: Vitest, React Testing Library, Playwright, GitHub Actions, Vercel, Render, CI/CD pipelines\n"
             "Workflow Automation: n8n, Workflow Automation\n"
             "Data & Business Intelligence: Microsoft Excel, Power BI, Tableau"
         ),
-        "keywords": ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "lovable", "antigravity", "curzo", "claude code", "chatgpt", "gemini", "langflow", "codex", "ai tools"]
+        "keywords": ["skills", "tech stack", "languages", "python", "typescript", "fastapi", "react", "langchain", "langgraph", "chromadb", "rag", "docker", "testing", "playwright", "n8n", "lovable", "antigravity", "cursor", "claude code", "chatgpt", "gemini", "langflow", "codex", "ai tools"]
     },
     {
         "id": "exp_flyrank",
@@ -147,16 +152,24 @@ GROUND_TRUTH_DATA = [
         "category": "projects",
         "title": "Project - CSEAIML LMS: Full-Stack Department LMS (PWA)",
         "content": (
-            "Project Name: CSEAIML LMS — Progressive Web App for CSE (AIML) Department\n"
+            "Project Name: CSEAIML LMS — Full-Stack Department LMS (PWA)\n"
+            "Status: Live production PWA for the CSE (AI/ML) department with 100+ active students and faculty users\n"
             "Institution: East West Institute of Technology, Bengaluru\n"
-            "Stack: React, Vite, Tailwind CSS v4, FastAPI, Firebase Auth, Firestore, Supabase (PostgreSQL & Storage), Cloudinary\n"
-            "Key Highlights:\n"
-            "- Role-based portals for Students, Faculty, Placement Officers, and Administrators.\n"
-            "- Internal marks management with per-internal test configs, publish/unpublish toggles, and bulk CSV/Excel upload.\n"
-            "- Placement drive and resource management with Supabase Storage, FCM push notifications, phone OTP authentication, and PWA install capabilities.\n"
-            "- Deployed live on Vercel."
+            "Repository: https://github.com/ranc5291-dotcom/CSE-AIML---LMS-APP\n"
+            "Live: https://cse-aiml-lms-app.vercel.app\n"
+            "Stack: React, Vite, Tailwind v4, Firebase (Auth, Firestore, FCM), Supabase (PostgreSQL, Storage), Cloudinary, FastAPI backend, Groq-powered in-app AI support agent\n"
+            "Features:\n"
+            "- Role-based dashboards for student, faculty, HOD, and admin.\n"
+            "- Semester-aware student views and progression tracking.\n"
+            "- Internal marks with publish/unpublish and CSV/Excel bulk upload.\n"
+            "- Attendance uploads and monitoring.\n"
+            "- Department notice board and placement drives.\n"
+            "- Phone and email OTP login.\n"
+            "- FCM push notifications.\n"
+            "- Installable PWA on Android and iOS.\n"
+            "- In-app AI support agent powered by Groq for answering college and departmental inquiries."
         ),
-        "keywords": ["lms", "cseaiml lms", "college", "pwa", "supabase", "firebase", "fastapi", "east west institute"]
+        "keywords": ["lms", "cseaiml lms", "college", "pwa", "supabase", "firebase", "fastapi", "east west institute", "projects", "live", "100+ users", "groq", "attendance", "marks", "hod", "fcm"]
     },
     {
         "id": "proj_other",
@@ -188,6 +201,20 @@ GROUND_TRUTH_DATA = [
             "- Generative AI Studio — Simplilearn"
         ),
         "keywords": ["education", "degree", "college", "east west institute", "cgpa", "certifications", "aws", "google llm", "simplilearn", "graduation"]
+    },
+    {
+        "id": "growth_areas",
+        "category": "summary",
+        "title": "Growth Areas & Self-Awareness",
+        "content": (
+            "When asked about weaknesses, areas for improvement, or growth areas, note that Charan is a final-year student "
+            "who has grown quickly by shipping real production features rather than only building prototypes. Like any early-career "
+            "engineer moving fast, he is still deepening his depth in large-scale distributed systems and formal MLOps practices "
+            "(model monitoring, evaluation pipelines at scale), since most of his experience so far has been in applied product engineering "
+            "(RAG, LLM integration, full-stack features) rather than infrastructure-heavy ML systems work. He treats this as an active, "
+            "ongoing focus rather than a gap, and is deliberately seeking roles that will stretch him in this direction."
+        ),
+        "keywords": ["weakness", "weaknesses", "weekness", "improve", "improvement", "growth", "gap", "challenge", "struggle", "shortcoming", "development area"]
     },
     {
         "id": "hackathons_activities",

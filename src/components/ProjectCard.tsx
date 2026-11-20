@@ -115,22 +115,24 @@ function ProjectVisual({ type, color }: { type: Project['visualType']; color?: s
   );
 }
 
-export function ProjectCard({ project, index, inView }: ProjectCardProps) {
+export function ProjectCard({ project, index, inView: _inView }: ProjectCardProps) {
   const [hovered, setHovered] = useState(false);
   const navigate = useNavigate();
 
-  const catColor = project.id === 'nexusai' ? '#4f8ef7'
+  const catColor = project.id === 'lms' ? '#22c55e'
+    : project.id === 'nexusai' ? '#4f8ef7'
     : project.id === 'prompt-studio' ? '#7c6af7'
     : project.id === 'course-recommendation' ? '#4ff7b0'
-    : project.id === 'food-delivery' ? '#f76a4f'
+    : project.id === 'yumrush' || project.id === 'food-delivery' ? '#f76a4f'
     : '#f7c94f';
 
   const isCompact = project.id === 'food-delivery';
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.65, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -179,9 +181,9 @@ export function ProjectCard({ project, index, inView }: ProjectCardProps) {
         </span>
 
         {/* Status badge */}
-        {project.status === 'building' && (
+        {project.statusLabel && (
           <span
-            className="badge-building"
+            className={project.status === 'building' ? 'badge-building' : 'badge-live'}
             style={{ position: 'absolute', top: '0.75rem', right: '1rem' }}
           >
             {project.statusLabel}
@@ -259,6 +261,19 @@ export function ProjectCard({ project, index, inView }: ProjectCardProps) {
           >
             {project.status === 'building' ? 'View Progress →' : 'Case Study →'}
           </button>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+              style={{ fontSize: '0.78rem', padding: '0.5rem 0.85rem' }}
+              aria-label={`View live demo of ${project.title}`}
+              onClick={e => e.stopPropagation()}
+            >
+              Live Demo ↗
+            </a>
+          )}
           {project.githubUrl && (
             <a
               href={project.githubUrl}

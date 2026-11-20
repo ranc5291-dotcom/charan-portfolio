@@ -34,8 +34,9 @@ export const SkillIcon: React.FC<SkillIconProps> = ({
         </svg>
       );
 
+    case 'cursor':
     case 'curzo':
-      // Curzo terminal cursor & arrow
+      // Cursor terminal editor / arrow
       return (
         <svg width={s} height={s} viewBox="0 0 24 24" fill={color} className={className} aria-hidden="true">
           <path d="M4 4l7.07 17 2.51-7.39L21 11.07 4 4z" />

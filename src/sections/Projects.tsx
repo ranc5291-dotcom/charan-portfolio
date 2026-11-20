@@ -1,15 +1,13 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useReducedMotion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { ProjectCard } from '../components/ProjectCard';
 
 export default function Projects() {
-  const [ref, inView] = useInView(0.05);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="work"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         borderTop: '1px solid var(--color-border)',
@@ -17,16 +15,17 @@ export default function Projects() {
       }}
       aria-labelledby="projects-heading"
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
         {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+        <div className="section-eyebrow">
           <span className="text-label">Selected Projects</span>
-        </motion.div>
+        </div>
 
         {/* Heading */}
         <div
@@ -39,11 +38,7 @@ export default function Projects() {
             gap: '1rem',
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <div>
             <h2
               id="projects-heading"
               className="text-display-sm"
@@ -54,7 +49,7 @@ export default function Projects() {
             <p style={{ fontSize: '0.9rem', color: 'var(--color-text-2)' }}>
               Click any card to read the full case study.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Project grid — featured (first 3 larger) */}
@@ -67,7 +62,7 @@ export default function Projects() {
           }}
         >
           {projects.slice(0, 3).map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} inView={inView} />
+            <ProjectCard key={project.id} project={project} index={i} inView={true} />
           ))}
         </div>
 
@@ -80,10 +75,10 @@ export default function Projects() {
           }}
         >
           {projects.slice(3).map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i + 3} inView={inView} />
+            <ProjectCard key={project.id} project={project} index={i + 3} inView={true} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

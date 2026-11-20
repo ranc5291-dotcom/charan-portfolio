@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer
       style={{
-        padding: '2.5rem var(--section-pad-x)',
+        padding: '2.5rem var(--section-pad-x) 6.5rem',
         borderTop: '1px solid var(--color-border)',
         background: 'var(--color-bg)',
       }}

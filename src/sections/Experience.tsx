@@ -1,14 +1,12 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useReducedMotion } from 'framer-motion';
 import { experience } from '../data/experience';
 
 export default function Experience() {
-  const [ref, inView] = useInView(0.1);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="experience"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         borderTop: '1px solid var(--color-border)',
@@ -16,27 +14,25 @@ export default function Experience() {
       }}
       aria-labelledby="experience-heading"
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
         {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+        <div className="section-eyebrow">
           <span className="text-label">Experience</span>
-        </motion.div>
+        </div>
 
-        <motion.h2
+        <h2
           id="experience-heading"
           className="text-display-sm"
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
           style={{ color: 'var(--color-text)', marginBottom: '4rem', maxWidth: '600px' }}
         >
           Where I've built things.
-        </motion.h2>
+        </h2>
 
         {/* Timeline */}
         <div style={{ position: 'relative' }}>
@@ -44,8 +40,9 @@ export default function Experience() {
           <motion.div
             aria-hidden="true"
             initial={{ scaleY: 0 }}
-            animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 1, delay: shouldReduceMotion ? 0 : 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{
               position: 'absolute',
               left: '11px',
@@ -61,9 +58,10 @@ export default function Experience() {
             {experience.map((item, idx) => (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, x: -32 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.3 + idx * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.65, delay: shouldReduceMotion ? 0 : (0.15 + idx * 0.15), ease: [0.25, 0.46, 0.45, 0.94] }}
                 style={{ display: 'flex', gap: '2rem', paddingLeft: '2.5rem', position: 'relative' }}
               >
                 {/* Timeline dot */}
@@ -208,7 +206,7 @@ export default function Experience() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

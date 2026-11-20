@@ -1,6 +1,8 @@
 import { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
+import { IntroProvider } from './context/IntroProvider';
+import IntroOverlay from './components/IntroOverlay';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
@@ -50,8 +52,8 @@ export default function App() {
       window.removeEventListener('touchstart', triggerLoad);
     };
     
-    // Defer loading agent well past Lighthouse's measurement window (10s)
-    const timer = setTimeout(triggerLoad, 10000);
+    // Defer loading agent past initial render
+    const timer = setTimeout(triggerLoad, 3000);
     
     window.addEventListener('scroll', triggerLoad, { once: true, passive: true });
     window.addEventListener('touchstart', triggerLoad, { once: true, passive: true });
@@ -63,9 +65,12 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <IntroProvider>
       {/* Subtle noise overlay */}
       <div className="noise-overlay" aria-hidden="true" />
+
+      {/* Intro entrance animation (once per session, skippable on click) */}
+      <IntroOverlay />
 
       <BrowserRouter>
         <Suspense fallback={null}>
@@ -83,6 +88,6 @@ export default function App() {
         )}
       </BrowserRouter>
       <Analytics />
-    </>
+    </IntroProvider>
   );
 }

@@ -45,20 +45,45 @@ export function useActiveSection(sectionIds: string[]): string {
   const [active, setActive] = useState('');
 
   useEffect(() => {
-    const observers = sectionIds.map(id => {
-      const el = document.getElementById(id);
-      if (!el) return null;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActive(id);
-        },
-        { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
-      );
-      observer.observe(el);
-      return observer;
-    });
+    const handleScroll = () => {
+      const headerOffset = 90; // accounts for sticky header height
+      const scrollY = window.scrollY;
 
-    return () => observers.forEach(o => o?.disconnect());
+      // If scrolled near bottom of page, activate last section
+      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 70) {
+        setActive(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      // If at very top before the first section
+      const firstEl = document.getElementById(sectionIds[0]);
+      if (firstEl && firstEl.getBoundingClientRect().top > headerOffset + 60) {
+        setActive('');
+        return;
+      }
+
+      // Check which section intersects the reading trigger point
+      const triggerY = headerOffset + 50;
+      let current = '';
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerY && rect.bottom > triggerY) {
+          current = id;
+          break;
+        }
+      }
+
+      if (current) {
+        setActive(current);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionIds]);
 
   return active;

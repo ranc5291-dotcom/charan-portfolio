@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, lazy, Suspense } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { useWebGL } from '../hooks/useInView';
+import { useIntro } from '../context/IntroContext';
 
 const HeroCanvas = lazy(() => import('../components/three/HeroCanvas'));
 
@@ -10,28 +11,19 @@ export default function Hero() {
   const [clicked, setClicked] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [mountCanvas, setMountCanvas] = useState(false);
+  const { introActive } = useIntro();
+  const shouldReduceMotion = useReducedMotion();
 
+  // Lazy-load WebGL Canvas smoothly without blocking initial paint
   useEffect(() => {
-    const triggerMount = () => {
-      setMountCanvas(true);
-      cleanup();
-    };
-
-    const cleanup = () => {
-      window.removeEventListener('scroll', triggerMount);
-      window.removeEventListener('touchstart', triggerMount);
-    };
-
-    // Defer WebGL Canvas loading to post-initial load (10s delay) 
-    const loadTimer = setTimeout(triggerMount, 10000);
-
-    window.addEventListener('scroll', triggerMount, { once: true, passive: true });
-    window.addEventListener('touchstart', triggerMount, { once: true, passive: true });
-
-    return () => {
-      clearTimeout(loadTimer);
-      cleanup();
-    };
+    let idleId: number;
+    if ('requestIdleCallback' in window) {
+      idleId = (window as any).requestIdleCallback(() => setMountCanvas(true), { timeout: 1500 });
+      return () => (window as any).cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(() => setMountCanvas(true), 400);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
@@ -60,6 +52,15 @@ export default function Hero() {
   const yText = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const opacityText = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
+  const baseDelay = shouldReduceMotion ? 0 : (introActive ? 1.25 : 0.15);
+
+  const headlineLines = [
+    { text: 'AI Engineer.', isGradient: false },
+    { text: 'Builder.', isGradient: false },
+    { text: 'Problem', isGradient: true },
+    { text: 'Solver.', isGradient: true },
+  ];
+
   return (
     <section
       ref={containerRef}
@@ -76,15 +77,17 @@ export default function Hero() {
       }}
       aria-label="Introduction"
     >
-      {/* 3D Background Elements */}
+      {/* 3D Background Elements — smoothly fades in post-paint */}
       {webglSupported && mountCanvas && (
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
           style={{
             position: 'absolute',
             inset: 0,
             zIndex: 0,
             y: yBg,
-            opacity: 0.5,
           }}
           aria-hidden="true"
         >
@@ -98,7 +101,6 @@ export default function Hero() {
           </Suspense>
         </motion.div>
       )}
-
 
       {/* Hero Typography & Content */}
       <motion.div
@@ -117,10 +119,18 @@ export default function Hero() {
         }}
       >
         <div style={{ pointerEvents: 'auto' }}>
-          <span
+          {/* 1. Small label */}
+          <motion.span
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0.3 : 0.5,
+              delay: shouldReduceMotion ? 0 : (baseDelay + 0.1),
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)',
+              fontSize: 'clamp(0.72rem, 1.1vw, 0.88rem)',
               color: 'var(--color-accent)',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
@@ -129,9 +139,10 @@ export default function Hero() {
               fontWeight: 500,
             }}
           >
-            H N Charan
-          </span>
+            H N CHARAN · AI ENGINEER · BENGALURU
+          </motion.span>
 
+          {/* 2. Headline line-by-line masked reveals */}
           <h1
             className="text-display"
             style={{
@@ -141,16 +152,33 @@ export default function Hero() {
               textShadow: '0 4px 12px rgba(0,0,0,0.4)',
             }}
           >
-            Developer.
-            <br />
-            Builder.
-            <br />
-            <span className="gradient-text">Problem</span>
-            <br />
-            <span className="gradient-text">Solver.</span>
+            {headlineLines.map((line, idx) => (
+              <div key={idx} style={{ overflow: 'hidden', paddingBottom: '0.06em' }}>
+                <motion.div
+                  initial={shouldReduceMotion ? { opacity: 0 } : { y: '105%', opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: shouldReduceMotion ? 0.3 : 0.65,
+                    delay: shouldReduceMotion ? 0 : (baseDelay + 0.22 + idx * 0.14),
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                  className={line.isGradient ? 'gradient-text' : undefined}
+                >
+                  {line.text}
+                </motion.div>
+              </div>
+            ))}
           </h1>
 
-          <p
+          {/* 3. Subtext */}
+          <motion.p
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0.3 : 0.55,
+              delay: shouldReduceMotion ? 0 : (baseDelay + 0.82),
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1rem, 1.15vw, 1.1rem)',
@@ -163,23 +191,51 @@ export default function Hero() {
             }}
           >
             I build digital products, intelligent applications, and practical solutions across software, AI, and modern web technologies.
-          </p>
+          </motion.p>
 
-          <div className="hero-cta-row" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          {/* 4. Buttons */}
+          <motion.div
+            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0.3 : 0.55,
+              delay: shouldReduceMotion ? 0 : (baseDelay + 0.96),
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="hero-cta-row"
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+          >
             <a href="#work" className="btn-primary" id="hero-btn-work">
               Explore Selected Work →
+            </a>
+            <a
+              href="/Charan_Resume.pdf"
+              download
+              className="btn-ghost"
+              id="hero-btn-resume"
+              aria-label="Download Charan's Resume"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Resume
             </a>
             <a href="#contact" className="btn-ghost" id="hero-btn-contact">
               Let's Connect
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* 5. Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+          transition={{
+            duration: 0.8,
+            delay: shouldReduceMotion ? 0 : (baseDelay + 1.18),
+          }}
           style={{
             display: 'flex',
             alignItems: 'center',

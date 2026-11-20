@@ -1,13 +1,12 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
 const STATEMENT = "I'm a computer science student and developer who enjoys turning ideas into working products.";
 const BODY = "My work spans software development, AI-powered applications, web experiences, automation, and data-driven tools. I like learning by building, experimenting with new technologies, and improving products through iteration.";
 
 export default function Introduction() {
   const containerRef = useRef<HTMLElement>(null);
-  const [ref, inView] = useInView(0.2);
+  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -32,9 +31,14 @@ export default function Introduction() {
       aria-label="Who I am"
     >
       <motion.div
-        style={{ y, maxWidth: '1200px', margin: '0 auto' }}
+        style={{ y: shouldReduceMotion ? 0 : y, maxWidth: '1200px', margin: '0 auto' }}
       >
-        <div ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
           <div className="section-eyebrow" style={{ marginBottom: '2rem' }}>
             <span className="text-label">Who I am</span>
           </div>
@@ -51,11 +55,12 @@ export default function Introduction() {
               <span key={i} style={{ display: 'inline-block', overflow: 'hidden', marginRight: '0.25em', paddingBottom: '0.1em' }}>
                 <motion.span
                   style={{ display: 'inline-block' }}
-                  initial={{ y: '100%' }}
-                  animate={inView ? { y: 0 } : {}}
+                  initial={{ y: shouldReduceMotion ? 0 : '100%', opacity: shouldReduceMotion ? 0 : 1 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-80px' }}
                   transition={{
-                    duration: 0.6,
-                    delay: i * 0.04,
+                    duration: shouldReduceMotion ? 0.3 : 0.6,
+                    delay: shouldReduceMotion ? 0 : (i * 0.03),
                     ease: [0.25, 0.46, 0.45, 0.94],
                   }}
                 >
@@ -65,12 +70,7 @@ export default function Introduction() {
             ))}
           </h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ maxWidth: '700px' }}
-          >
+          <div style={{ maxWidth: '700px' }}>
             <p
               style={{
                 fontFamily: 'var(--font-body)',
@@ -83,8 +83,8 @@ export default function Introduction() {
             >
               {BODY}
             </p>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );

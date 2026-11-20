@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from '../hooks/useInView';
+import { motion, useReducedMotion } from 'framer-motion';
 import { certifications } from '../data/certifications';
 
 const ISSUER_ICONS: Record<string, string> = {
@@ -15,12 +14,11 @@ const ISSUER_COLORS: Record<string, string> = {
 };
 
 export default function Certifications() {
-  const [ref, inView] = useInView(0.1);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section
       id="certifications"
-      ref={ref}
       style={{
         padding: 'var(--section-pad-y) var(--section-pad-x)',
         borderTop: '1px solid var(--color-border)',
@@ -28,26 +26,24 @@ export default function Certifications() {
       }}
       aria-labelledby="certifications-heading"
     >
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="section-eyebrow"
-        >
+      <motion.div
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
+        <div className="section-eyebrow">
           <span className="text-label">Certifications</span>
-        </motion.div>
+        </div>
 
-        <motion.h2
+        <h2
           id="certifications-heading"
           className="text-display-sm"
-          initial={{ opacity: 0, y: 24 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
           style={{ color: 'var(--color-text)', marginBottom: '3rem' }}
         >
           Credentials & Learning.
-        </motion.h2>
+        </h2>
 
         <div
           style={{
@@ -64,9 +60,10 @@ export default function Certifications() {
               <motion.div
                 key={cert.id}
                 className="card"
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : (0.08 * i) }}
                 style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}
               >
                 {/* Issuer badge */}
@@ -129,7 +126,7 @@ export default function Certifications() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

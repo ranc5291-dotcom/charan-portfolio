@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { sendAgentMessage, type ChatMessage } from '../utils/agentService';
 
@@ -11,6 +12,7 @@ const SUGGESTED_PROMPTS = [
 ];
 
 export default function PortfolioAgent() {
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +38,11 @@ export default function PortfolioAgent() {
       setTimeout(() => inputRef.current?.focus(), 150);
     }
   }, [isOpen, messages, isLoading]);
+
+  // Hide the floating widget on case study pages to prevent obscuring content
+  if (location.pathname.startsWith('/case-study')) {
+    return null;
+  }
 
   const handleSend = async (textToSend?: string) => {
     const query = (textToSend || input).trim();
@@ -96,6 +103,7 @@ export default function PortfolioAgent() {
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
             aria-label="Open AI Portfolio Agent"
+            className="btn-agent-pulse"
             style={{
               display: 'flex',
               alignItems: 'center',

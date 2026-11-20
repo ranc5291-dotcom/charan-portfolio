@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { useActiveSection, useScrollProgress } from '../hooks/useInView';
+import { useIntro } from '../context/IntroContext';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Work', href: '#work' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Work', href: '#work' },
   { label: 'Contact', href: '#contact' },
 ];
 
-const SECTION_IDS = ['about', 'experience', 'work', 'skills', 'contact'];
+const SECTION_IDS = ['about', 'experience', 'skills', 'work', 'contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
   const progress = useScrollProgress();
+  const { introActive } = useIntro();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -48,9 +51,13 @@ export default function Navbar() {
 
       <motion.header
         className="fixed top-0 left-0 right-0 z-50"
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        initial={shouldReduceMotion ? { opacity: 0 } : { y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: shouldReduceMotion ? 0.3 : 0.65,
+          delay: shouldReduceMotion ? 0 : (introActive ? 1.25 : 0.1),
+          ease: [0.25, 0.46, 0.45, 0.94],
+        }}
       >
         <nav
           className="transition-all duration-300"
@@ -131,8 +138,24 @@ export default function Navbar() {
               })}
             </ul>
 
-            {/* CTA + Mobile toggle */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            {/* CTA + Resume + Mobile toggle */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              {/* Resume button with download icon */}
+              <a
+                href="/Charan_Resume.pdf"
+                download
+                className="btn-ghost hidden md:inline-flex"
+                style={{ padding: '0.55rem 1rem', fontSize: '0.8rem', gap: '0.45rem' }}
+                aria-label="Download Charan's Resume"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Resume
+              </a>
+
               <a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
@@ -228,7 +251,22 @@ export default function Navbar() {
                     </button>
                   </motion.li>
                 ))}
-                <motion.li initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} style={{ marginTop: '1.5rem' }}>
+                <motion.li initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <a
+                    href="/Charan_Resume.pdf"
+                    download
+                    className="btn-ghost"
+                    style={{ width: '100%', justifyContent: 'center', gap: '0.5rem' }}
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="Download Charan's Resume"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Resume
+                  </a>
                   <a
                     href="mailto:charanhn629@gmail.com"
                     className="btn-primary"
