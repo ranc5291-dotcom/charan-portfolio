@@ -21,12 +21,13 @@ GROUND_TRUTH_DATA = [
             "Email: charanhn629@gmail.com\n"
             "LinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/\n"
             "GitHub: https://github.com/ranc5291-dotcom\n"
+            "HackerRank: https://www.hackerrank.com/profile/charanhn629\n"
             "Location: Bengaluru, Karnataka, India\n"
             "Languages Spoken: English, Kannada, Hindi\n"
             "Resume: Downloadable directly from the portfolio website (available via the \"Resume\" button in the navbar, "
             "\"Download Resume\" in the hero section, and \"Resume\" in the contact section, linking to /Charan_Resume.pdf)."
         ),
-        "keywords": ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages", "resume", "cv", "download resume"]
+        "keywords": ["contact", "email", "phone", "linkedin", "github", "hackerrank", "location", "bengaluru", "reach", "hire", "languages", "resume", "cv", "download resume"]
     },
     {
         "id": "professional_summary",
@@ -226,10 +227,12 @@ GROUND_TRUTH_DATA = [
             "- IDEATHON 2025 — Shortlisted, State-level Hackathon Participant\n"
             "- Agentic AI Hackathon — HACK2SKILL (Participant)\n"
             "- HackerRank Challenges (Participant)\n\n"
+            "HackerRank Profile & Achievements:\n"
+            "- H N Charan has a HackerRank profile (https://www.hackerrank.com/profile/charanhn629) with a Python Gold badge (975 points). Earned the Python Gold badge through problem-solving challenges.\n\n"
             "Leadership & Volunteering:\n"
             "- Hackathon Coordinator & Volunteer Coordinator at East West Institute of Technology."
         ),
-        "keywords": ["hackathons", "competitions", "vishwanova", "ideathon", "agentic ai", "hackerrank", "volunteer", "coordinator"]
+        "keywords": ["hackathons", "competitions", "vishwanova", "ideathon", "agentic ai", "hackerrank", "python gold", "gold badge", "coding profile", "problem solving", "volunteer", "coordinator"]
     }
 ]
 

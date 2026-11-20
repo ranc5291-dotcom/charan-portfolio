@@ -12,10 +12,11 @@ Phone: +91-7337615979
 Email: charanhn629@gmail.com
 LinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/
 GitHub: https://github.com/ranc5291-dotcom
+HackerRank: https://www.hackerrank.com/profile/charanhn629
 Location: Bengaluru, Karnataka, India
 Languages Spoken: English, Kannada, Hindi
 Resume: Downloadable directly from the portfolio website (available via the "Resume" button in the navbar, "Download Resume" in the hero section, and "Resume" in the contact section, linking to /Charan_Resume.pdf).`,
-    keywords: ["contact", "email", "phone", "linkedin", "github", "location", "bengaluru", "reach", "hire", "languages", "number", "call", "resume", "cv", "download resume", "pdf"]
+    keywords: ["contact", "email", "phone", "linkedin", "github", "hackerrank", "location", "bengaluru", "reach", "hire", "languages", "number", "call", "resume", "cv", "download resume", "pdf"]
   },
   {
     id: "professional_summary",
@@ -185,9 +186,12 @@ Certifications Earned:
 - Agentic AI Hackathon — HACK2SKILL (Participant)
 - HackerRank Challenges (Participant)
 
+HackerRank Profile & Achievements:
+- H N Charan has a HackerRank profile (https://www.hackerrank.com/profile/charanhn629) with a Python Gold badge (975 points). Earned the Python Gold badge through problem-solving challenges.
+
 Leadership & Volunteering:
 - Hackathon Coordinator & Volunteer Coordinator at East West Institute of Technology.`,
-    keywords: ["hackathons", "competitions", "vishwanova", "ideathon", "agentic ai", "hackerrank", "volunteer", "coordinator", "activities"]
+    keywords: ["hackathons", "competitions", "vishwanova", "ideathon", "agentic ai", "hackerrank", "python gold", "gold badge", "coding profile", "problem solving", "volunteer", "coordinator", "activities"]
   }
 ];
 
@@ -257,14 +261,15 @@ CRITICAL OPERATIONAL RULES:
 3. SCOPE & REDIRECTION: If asked questions unrelated to Charan (e.g. general trivia, coding puzzles, unrelated world events, writing generic essays), politely decline and state that you are specifically designed to answer questions about H N Charan's portfolio and professional work.
 4. HONESTY & DEFLECTION: If a specific detail is not in the knowledge base, state clearly: "I don't have that information in Charan's portfolio, but you can reach him directly at charanhn629@gmail.com." Only say this for details you genuinely have no grounding for (e.g. salary expectations, exact dates not listed, personal opinions). For common interview-style questions like weaknesses, growth areas, or challenges, use the Growth Areas & Self-Awareness knowledge if provided in context — answer thoughtfully and briefly rather than deflecting, the way a well-prepared candidate would.
 5. FULL-TIME ROLE AVAILABILITY: If asked "Is he open to full-time AI Engineer roles?" (or similar career interest queries), answer clearly: yes, he is looking for fresher AI / GenAI engineer roles, based in Bengaluru, and point to his resume (downloadable from the navbar, hero, and contact section) and contact links (charanhn629@gmail.com, LinkedIn, GitHub).
-6. PLAIN TEXT ONLY — NO MARKDOWN, NO HTML: The chat widget displaying your reply renders raw plain text only. It does NOT render Markdown or HTML. You must NEVER use:
+6. CODING PROFILES & PROBLEM-SOLVING: If asked about Charan's coding profiles, HackerRank, or problem-solving practice, share his HackerRank profile (https://www.hackerrank.com/profile/charanhn629) and mention his Python Gold badge (975 points).
+7. PLAIN TEXT ONLY — NO MARKDOWN, NO HTML: The chat widget displaying your reply renders raw plain text only. It does NOT render Markdown or HTML. You must NEVER use:
    - Markdown tables (no "|" pipe characters or table syntax)
    - Bold/italic markers like **text** or *text* or __text__
    - HTML tags like <br>, <b>, <ul>, <li>
    - Markdown headers like ### or ##
    Instead, for lists use a simple hyphen "-" at the start of a line followed by a space, with each item on its own line (real newlines, not <br>). Use plain sentence case for emphasis instead of bold/italic.
-7. LENGTH & STRUCTURE: Keep answers concise. When listing multiple projects or skills, use short plain-text bullet lines (one item per line: "- Name: one-sentence description") rather than dense paragraphs or tables.
-8. TONE: Professional, concise, articulate, and welcoming.
+8. LENGTH & STRUCTURE: Keep answers concise. When listing multiple projects or skills, use short plain-text bullet lines (one item per line: "- Name: one-sentence description") rather than dense paragraphs or tables.
+9. TONE: Professional, concise, articulate, and welcoming.
 
 ==================================================
 GROUNDED KNOWLEDGE ABOUT H N CHARAN:

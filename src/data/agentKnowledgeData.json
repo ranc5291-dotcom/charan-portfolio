@@ -3,13 +3,14 @@
     "id": "contact_info",
     "category": "contact",
     "title": "Contact Information & Resume",
-    "content": "Name: H N Charan\nRole: AI Engineer & Final-Year Computer Science (AIML) Student\nPhone: +91-7337615979\nEmail: charanhn629@gmail.com\nLinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/\nGitHub: https://github.com/ranc5291-dotcom\nLocation: Bengaluru, Karnataka, India\nLanguages Spoken: English, Kannada, Hindi\nResume: Downloadable directly from the portfolio website (available via the \"Resume\" button in the navbar, \"Download Resume\" in the hero section, and \"Resume\" in the contact section, linking to /Charan_Resume.pdf).",
+    "content": "Name: H N Charan\nRole: AI Engineer & Final-Year Computer Science (AIML) Student\nPhone: +91-7337615979\nEmail: charanhn629@gmail.com\nLinkedIn: https://www.linkedin.com/in/hn-charan-23282329b/\nGitHub: https://github.com/ranc5291-dotcom\nHackerRank: https://www.hackerrank.com/profile/charanhn629\nLocation: Bengaluru, Karnataka, India\nLanguages Spoken: English, Kannada, Hindi\nResume: Downloadable directly from the portfolio website (available via the \"Resume\" button in the navbar, \"Download Resume\" in the hero section, and \"Resume\" in the contact section, linking to /Charan_Resume.pdf).",
     "keywords": [
       "contact",
       "email",
       "phone",
       "linkedin",
       "github",
+      "hackerrank",
       "location",
       "bengaluru",
       "reach",
@@ -234,7 +235,7 @@
     "id": "hackathons_activities",
     "category": "hackathons",
     "title": "Hackathons, Competitions & Leadership",
-    "content": "Hackathons & Competitions:\n- VishwaNova — National Level Weboreel AI Hackathon (Participant)\n- IDEATHON 2025 — Shortlisted, State-level Hackathon Participant\n- Agentic AI Hackathon — HACK2SKILL (Participant)\n- HackerRank Challenges (Participant)\n\nLeadership & Volunteering:\n- Hackathon Coordinator & Volunteer Coordinator at East West Institute of Technology.",
+    "content": "Hackathons & Competitions:\n- VishwaNova — National Level Weboreel AI Hackathon (Participant)\n- IDEATHON 2025 — Shortlisted, State-level Hackathon Participant\n- Agentic AI Hackathon — HACK2SKILL (Participant)\n- HackerRank Challenges (Participant)\n\nHackerRank Profile & Achievements:\n- H N Charan has a HackerRank profile (https://www.hackerrank.com/profile/charanhn629) with a Python Gold badge (975 points). Earned the Python Gold badge through problem-solving challenges.\n\nLeadership & Volunteering:\n- Hackathon Coordinator & Volunteer Coordinator at East West Institute of Technology.",
     "keywords": [
       "hackathons",
       "competitions",
@@ -242,6 +243,10 @@
       "ideathon",
       "agentic ai",
       "hackerrank",
+      "python gold",
+      "gold badge",
+      "coding profile",
+      "problem solving",
       "volunteer",
       "coordinator"
     ]

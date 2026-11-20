@@ -140,6 +140,19 @@ export default function Contact() {
               </svg>
               GitHub
             </a>
+            <a
+              href="https://www.hackerrank.com/profile/charanhn629"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+              id="contact-hackerrank"
+              aria-label="View H N Charan's HackerRank profile"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0a12 12 0 1 0 12 12A12.013 12.013 0 0 0 12 0zm3.75 16.5h-2.1v-3.75h-3.3v3.75h-2.1V7.5h2.1v3.6h3.3V7.5h2.1v9z" />
+              </svg>
+              HackerRank
+            </a>
           </div>
 
           {/* Email display */}

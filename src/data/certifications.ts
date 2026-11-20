@@ -51,6 +51,8 @@ export interface Hackathon {
   type: string;
   description: string;
   isOrganizer?: boolean;
+  isAchievement?: boolean;
+  link?: string;
 }
 
 export const hackathons: Hackathon[] = [
@@ -82,5 +84,14 @@ export const hackathons: Hackathon[] = [
     type: 'East West Institute of Technology',
     description: 'Organized and coordinated hackathon events at East West Institute of Technology.',
     isOrganizer: true,
+  },
+  {
+    id: 'hackerrank-gold',
+    title: 'HackerRank Python Gold Badge',
+    role: 'ACHIEVEMENT',
+    type: 'HackerRank · 975 points',
+    description: 'Earned the Python Gold badge on HackerRank through problem-solving challenges.',
+    isAchievement: true,
+    link: 'https://www.hackerrank.com/profile/charanhn629',
   },
 ];
