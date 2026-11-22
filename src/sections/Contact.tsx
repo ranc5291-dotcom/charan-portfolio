@@ -101,7 +101,7 @@ export default function Contact() {
             </a>
             <a
               href="/Charan_Resume.pdf"
-              download
+              download="Charan_Resume.pdf"
               className="btn-ghost"
               id="contact-resume"
               aria-label="Download H N Charan's Resume"

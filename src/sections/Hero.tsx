@@ -210,7 +210,7 @@ export default function Hero() {
             </a>
             <a
               href="/Charan_Resume.pdf"
-              download
+              download="Charan_Resume.pdf"
               className="btn-ghost"
               id="hero-btn-resume"
               aria-label="Download Charan's Resume"

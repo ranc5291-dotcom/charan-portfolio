@@ -143,7 +143,7 @@ export default function Navbar() {
               {/* Resume button with download icon */}
               <a
                 href="/Charan_Resume.pdf"
-                download
+                download="Charan_Resume.pdf"
                 className="btn-ghost hidden md:inline-flex"
                 style={{ padding: '0.55rem 1rem', fontSize: '0.8rem', gap: '0.45rem' }}
                 aria-label="Download Charan's Resume"
@@ -254,7 +254,7 @@ export default function Navbar() {
                 <motion.li initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <a
                     href="/Charan_Resume.pdf"
-                    download
+                    download="Charan_Resume.pdf"
                     className="btn-ghost"
                     style={{ width: '100%', justifyContent: 'center', gap: '0.5rem' }}
                     onClick={() => setMenuOpen(false)}
